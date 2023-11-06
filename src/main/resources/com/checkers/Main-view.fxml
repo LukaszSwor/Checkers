@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane
+        prefHeight="400.0"
+        prefWidth="500.0"
+        xmlns="http://javafx.com/javafx"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="com.checkers.GameController"
+        style="-fx-background-color: #8D6E63;">
+    <top>
+        <HBox spacing="20">
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="whitePlayerLabel" text="Mr.White" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="blackPlayerLabel" text="Mr.Black" />
+            <Region HBox.hgrow="ALWAYS" />
+        </HBox>
+    </top>
+    <center>
+        <GridPane fx:id="boardGridPane" alignment="CENTER">
+        </GridPane>
+    </center>
+    <bottom>
+        <HBox spacing="20">
+            <Region HBox.hgrow="ALWAYS" />
+            <Label text="White Count" fx:id="whiteCountLabel" BorderPane.alignment="CENTER" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label text="Black Count" fx:id="blackCountLabel" BorderPane.alignment="CENTER" />
+            <Region HBox.hgrow="ALWAYS" />
+        </HBox>
+    </bottom>
+</BorderPane>
