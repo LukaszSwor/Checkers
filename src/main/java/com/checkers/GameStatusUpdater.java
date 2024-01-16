@@ -1,6 +1,8 @@
 package com.checkers;
 
 import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 
 /**
  * This class is responsible for updating the game status on the UI,
@@ -9,24 +11,34 @@ import javafx.scene.control.Label;
 
 public class GameStatusUpdater {
 
-    private Label whiteCountLabel;
-    private Label blackCountLabel;
+    private int whitePieceCount;
+    private int blackPieceCount;
+    private final Label whiteCountLabel;
+    private final Label blackCountLabel;
 
-    /**
-     * @param whiteCountLabel The label for displaying the white piece count.
-     * @param blackCountLabel The label for displaying the black piece count.
-     */
     public GameStatusUpdater(Label whiteCountLabel, Label blackCountLabel) {
         this.whiteCountLabel = whiteCountLabel;
         this.blackCountLabel = blackCountLabel;
+        this.whitePieceCount = 12;
+        this.blackPieceCount = 12;
     }
 
-    /**
-     * @param whiteCount The number of white pieces remaining.
-     * @param blackCount The number of black pieces remaining.
-     */
     public void updatePlayerPieceCount(int whiteCount, int blackCount) {
         whiteCountLabel.setText("White Pieces: " + whiteCount);
         blackCountLabel.setText("Black Pieces: " + blackCount);
     }
+
+    public void updatePieceCount(Circle pieceRemoved) {
+        if (pieceRemoved.getFill() == Color.WHITE) {
+            whitePieceCount--;
+        } else if (pieceRemoved.getFill() == Color.BLACK) {
+            blackPieceCount--;
+        }
+        updatePieceCountLabels();
+    }
+    private void updatePieceCountLabels() {
+        whiteCountLabel.setText("White Pieces: " + whitePieceCount);
+        blackCountLabel.setText("Black Pieces: " + blackPieceCount);
+    }
+
 }
